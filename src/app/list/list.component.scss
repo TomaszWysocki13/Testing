@@ -1,0 +1,18 @@
+div{
+  margin-top: 50px;
+  max-height: 500px;
+  overflow: auto;
+}
+table{
+  tr{
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(238,21,21,.7);
+    }
+  }
+  td{
+    &:nth-child(odd){
+      width: 10px;
+    }
+  }
+}

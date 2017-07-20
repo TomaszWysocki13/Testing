@@ -1,0 +1,29 @@
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body{
+  background-color: #f0f0f0;
+  color: #222224;
+  font-family: 'Roboto', sans-serif;
+}
+*:focus {
+  outline: 0;
+}
+h1{
+  font-family: 'Anton', sans-serif;
+}
+ul,li,h1,h2,h3,body{
+  margin:0;
+  padding:0;
+}
+a{
+  text-decoration: none;
+}
+  a:hover{
+     text-decoration: none;
+  }
+  a:focus{
+     text-decoration: none;
+  }

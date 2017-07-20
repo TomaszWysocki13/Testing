@@ -1,0 +1,45 @@
+<ng-container *ngIf="(pokemons$ | async) as pokemon">
+  <ng-container *ngIf="(growth$ | async) as growth">
+    <header class="text-center">
+      <h2> {{ pokemon.name | capitalize }} </h2>
+    </header><br />
+    <table class="table table-bordered">
+
+      <tr>
+        <td class="text-right">Type</td>
+        <td class="text-left">
+          <span *ngFor="let poison of pokemon.types" > {{ poison.type.name }}, </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="text-right">Weight</td>
+        <td class="text-left">{{ pokemon.weight/10 }} kg</td>
+      </tr>
+
+      <tr>
+        <td class="text-right">Height</td>
+        <td class="text-left">{{ pokemon.height/10 }} m</td>
+      </tr>
+
+      <tr>
+        <td class="text-right">Abilities</td>
+        <td class="text-left">
+          <span *ngFor="let skill of pokemon.abilities" > {{ skill.ability.name }}, </span>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="text-right">Growth rate</td>
+        <td class="text-left">{{ growth.growth_rate.name }}</td>
+      </tr>
+
+      <tr>
+        <td class="text-center" colspan="2">
+          <img src="{{ pokemon.sprites.front_default }}" /></td>
+      </tr>
+
+    </table>
+    <button (click)="cancel()" class="btn btn-danger">Back</button>
+  </ng-container>
+</ng-container>
