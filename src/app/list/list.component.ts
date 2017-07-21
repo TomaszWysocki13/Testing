@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/observable';
 
 import { PokemonService } from '../pokemon.service';
+import { IPokemon } from '../pokemon-interface';
 
 @Component({
   selector: 'app-list',
@@ -9,8 +10,8 @@ import { PokemonService } from '../pokemon.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  pokemons$: Observable<any>;
-
+  pokemons$: Observable<IPokemon[]>;
+  filteredName: string;
 
   constructor(private pokemonService: PokemonService) {
   }

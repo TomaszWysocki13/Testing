@@ -11,6 +11,7 @@ import { DetailsComponent }      from './details/details.component';
 import { ListComponent }         from './list/list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CapitalizePipe } from './capitalize.pipe';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CapitalizePipe } from './capitalize.pipe';
     ListComponent,
     PageNotFoundComponent,
     CapitalizePipe,
+    SearchPipe,
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

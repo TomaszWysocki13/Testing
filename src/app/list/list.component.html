@@ -1,7 +1,10 @@
+<input type="text" [(ngModel)]="filteredName" placeholder="Search pokemon" />
 <div>
-  <table class="table table-hover" *ngIf="(pokemons$ | async) as pokemons">
-    <tr *ngFor="let pokemon of pokemons.results; let i = index" routerLink="/details/{{ pokemon.url | slice:33 }}/">
+
+  <table class="table table-hover" *ngIf="(pokemons$ | async) as pokemons; else loading">
+    <tr *ngFor="let pokemon of pokemons.results | search: filteredName; let i = index" routerLink="/details/{{ pokemon.url | slice:33 }}/">
       <td> {{ i+1 }}. </td><td> {{ pokemon.name | capitalize }} </td>
     </tr>
   </table>
 </div>
+<ng-template #loading><div class="loading"></div></ng-template>

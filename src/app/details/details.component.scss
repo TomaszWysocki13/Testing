@@ -1,8 +1,28 @@
+@import "../shared/load";
 table {
+  max-width: 600px;
+  margin: 0 auto;
 }
 td{
   width: 50%;
 }
 .btn-danger{
-  background-color: #ee1515;
+  margin-left: 50%;
+  margin-top: 10px;
+  background-color: #222224;
+  transform: translateX(-50%);
+  box-shadow: none;
+  border: none;
+  &:hover{
+    background-color: darken(#ee1515, 14%);
+  }
+}
+h2{
+  padding-top: 50px;
+  margin-bottom: 30px;
+}
+.details{
+  background-color: #f0f0f0;
+  height: calc(100vh - 245px);
+  width: 100%;
 }

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
+import {IPokemon} from './pokemon-interface';
+import {IGrowth} from './growth-interface';
 
 @Injectable()
 export class PokemonService {
@@ -8,16 +11,25 @@ export class PokemonService {
 
   constructor(private http: Http) {
   }
-  getPokemons() {
+  getPokemons(): Observable<IPokemon[]> {
     const url = `${this.baseUrl}pokemon/?limit=1000`;
-    return this.http.get(url).map(pokemons => pokemons.json());
+    return this.http.get(url).map(pokemons => {
+      console.log('status: ', pokemons.statusText);
+      return pokemons.json()
+    });
   }
-  getPokemon(e: string) {
+  getPokemon(e: string): Observable<IPokemon>  {
     const url = `${this.baseUrl}pokemon/${e}`;
-    return this.http.get(url).map(pokemon => pokemon.json());
+    return this.http.get(url).map(pokemons => {
+      console.log('status: ', pokemons.statusText);
+      return pokemons.json()
+    });
   }
-  getGrowth(e: string) {
+  getGrowth(e: string): Observable<IGrowth>  {
     const url = `${this.baseUrl}pokemon-species/${e}`;
-    return this.http.get(url).map(pokemon => pokemon.json());
+    return this.http.get(url).map(pokemons => {
+      console.log('status: ', pokemons.statusText);
+      return pokemons.json()
+    });
   }
 }

@@ -3,6 +3,8 @@ import { PokemonService } from '../pokemon.service';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { IPokemon } from '../pokemon-interface';
+import { IGrowth } from '../growth-interface';
 
 @Component({
   selector: 'app-details',
@@ -10,13 +12,14 @@ import { Location } from '@angular/common';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  pokemons$: Observable<any>;
-  growth$: Observable<any>;
+  pokemons$: Observable<IPokemon>;
+  growth$: Observable<IGrowth>;
   constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
     this.pokemons$ = this.pokemonService.getPokemon(this.route.snapshot.url[1].path);
     this.growth$ = this.pokemonService.getGrowth(this.route.snapshot.url[1].path);
+    console.log();
   }
   cancel() {
     this.location.back();
